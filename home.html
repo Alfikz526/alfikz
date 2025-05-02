@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Selamat datang di Alfikz SMP!</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #101010;
+      color: #e0e0e0;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #4CAF50;
+      padding: 15px 30px;
+      color: white;
+      flex-wrap: wrap;
+    }
+
+    .navbar-logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .navbar-menu {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar-menu li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .navbar-menu li a:hover {
+      text-decoration: underline;
+    }
+
+    .hero {
+      position: relative;
+      background: url('1600w-ujuzOi2E_wI.webp') no-repeat center center;
+      background-size: cover;
+      padding: 100px 20px;
+      text-align: center;
+      color: white;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 150px;
+      background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, #152e17 100%);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .hero h2, .hero p, .cta-btn {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero h2 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+
+    .cta-btn {
+      background-color: #4CAF50;
+      color: white;
+      padding: 15px 30px;
+      font-size: 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .cta-btn:hover {
+      background-color: #388E3C;
+    }
+
+    .features-wrapper {
+      background: url('4K 16_9 Wallpaper - Hyper-realistic Minecraft.jpeg') no-repeat center center;
+      background-size: cover;
+      padding: 100px 20px 80px;
+    }
+
+    .features {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .feature-box {
+      background-color: #4CAF50;
+      padding: 30px;
+      width: 300px;
+      border-radius: 10px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      color: white;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .feature-box:hover {
+      background-color: #388E3C;
+      transform: scale(1.05);
+    }
+
+    .feature-box img {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 15px;
+      pointer-events: none;
+    }
+
+    .feature-box h3,
+    .feature-box p {
+      color: white;
+      pointer-events: none;
+    }
+
+    footer {
+      background-color: #101010;
+      color: #ddd;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 768px) {
+      .hero h2 {
+        font-size: 28px;
+      }
+      .hero p {
+        font-size: 16px;
+        padding: 0 10px;
+      }
+      .cta-btn {
+        font-size: 16px;
+        padding: 12px 20px;
+      }
+      .features {
+        flex-direction: column;
+        align-items: center;
+      }
+      .feature-box {
+        width: 100%;
+        max-width: 90%;
+      }
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .navbar-menu {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        margin-top: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="navbar-logo">Alfikz SMP</div>
+    <ul class="navbar-menu">
+      <li><a href="home.html">Home</a></li>
+      <li><a href="https://chat.whatsapp.com/CG4NwgZcDpf7RMo5mrb8p6">Grup WhatsApp</a></li>
+      <li><a href="https://discord.gg/usUAGRQMsc">Discord</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h2>Selamat datang di Alfikz SMP!</h2>
+    <p>Bergabunglah sekarang dan nikmati pengalaman Minecraft terbaik dengan teman-temanmu.</p>
+    <a href="https://chat.whatsapp.com/CG4NwgZcDpf7RMo5mrb8p6" class="cta-btn">Join Grup WhatsApp Sekarang!</a>
+  </section>
+
+  <!-- Fitur Server -->
+  <section class="features-wrapper">
+    <div class="features">
+      <a href="survival.html" class="feature-box">
+        <img src="images (3).jpeg" alt="Survival Mode">
+        <h3>Survival Mode</h3>
+        <p>Jelajahi dunia penuh petualangan dengan mode survival yang seru!</p>
+      </a>
+      <a href="minigames.html" class="feature-box">
+        <img src="images (2).jpeg" alt="Mini Games">
+        <h3>Mini Games</h3>
+        <p>Bergabung dalam berbagai mini game seru bersama teman-temanmu.</p>
+      </a>
+      <a href="images (1).jpeg" class="feature-box">
+        <img src="images (1).jpeg" alt="Economy Mode">
+        <h3>Ekonomi</h3>
+        <p>Bangun kekayaan dan bisnis di server dengan sistem ekonomi yang menarik.</p>
+      </a>
+      <a href="rank.html" class="feature-box">
+        <img src="cart.png" alt="Pembelian Rank">
+        <h3>Pembelian Rank</h3>
+        <p>Upgrade rank kamu untuk akses lebih banyak fitur keren di server!</p>
+      </a>
+      <a href="informasi-server.html" class="feature-box">
+        <img src="informasi.png" alt="Informasi Server">
+        <h3>Informasi Server</h3>
+        <p>Temukan semua informasi tentang server kami, termasuk aturan dan fitur terbaru.</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Alfikz SMP - All rights reserved</p>
+  </footer>
+
+</body>
+</html>
