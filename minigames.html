@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Minigames - Alfikz SMP</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #101010;
+      color: #e0e0e0;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Roboto', sans-serif;
+      font-weight: bold;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #388E3C;
+      padding: 15px 30px;
+      color: white;
+      flex-wrap: wrap;
+    }
+
+    .navbar-logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .navbar-menu {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar-menu li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .navbar-menu li a:hover {
+      text-decoration: underline;
+    }
+
+    header {
+      background-image: url('fotoku.jpg');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 40px 0;
+      text-align: center;
+    }
+
+    .content {
+      padding: 40px 20px;
+      max-width: 1100px;
+      margin: 0 auto;
+      background-color: #212121;
+    }
+
+    .minigame-section {
+      display: flex;
+      flex-wrap: wrap;
+      background: rgba(0, 0, 0, 0.7);
+      border-radius: 10px;
+      margin-bottom: 30px;
+      padding: 20px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .minigame-section img {
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+      border-radius: 10px;
+      margin-right: 20px;
+    }
+
+    .minigame-text {
+      flex: 1;
+    }
+
+    .minigame-text h2 {
+      font-size: 28px;
+      margin-top: 0;
+    }
+
+    .minigame-text p {
+      font-size: 16px;
+      line-height: 1.6;
+      color: #ddd;
+    }
+
+    footer {
+      background-color: #101010;
+      color: #ddd;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    @media (max-width: 768px) {
+      .minigame-section {
+        flex-direction: column;
+      }
+
+      .minigame-section img {
+        margin: 0 0 20px 0;
+        width: 100%;
+      }
+
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .navbar-menu {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        margin-top: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="navbar-logo">Alfikz SMP</div>
+    <ul class="navbar-menu">
+      <li><a href="home.html">Home</a></li>
+      <li><a href="https://chat.whatsapp.com/CG4NwgZcDpf7RMo5mrb8p6">Grup WhatsApp</a></li>
+      <li><a href="https://discord.gg/usUAGRQMsc">Discord</a></li>
+    </ul>
+  </nav>
+
+  <!-- Header -->
+  <header>
+    <h1>Minigames</h1>
+  </header>
+
+  <!-- Main Content -->
+  <div class="content">
+
+    <!-- PvP -->
+    <div class="minigame-section">
+      <img src="pvp.png" alt="PvP Arena">
+      <div class="minigame-text">
+        <h2>PvP Arena</h2>
+        <p>Masuki arena dan bertarung melawan pemain lain dalam duel 1v1 atau team battle. Buktikan siapa petarung terbaik di Alfikz SMP!</p>
+      </div>
+    </div>
+
+    <!-- Parkour -->
+    <div class="minigame-section">
+      <img src="parkour.png" alt="Parkour Challenge">
+      <div class="minigame-text">
+        <h2>Parkour</h2>
+        <p>Uji kemampuan melompat dan keseimbanganmu di lintasan parkour yang menantang. Tersedia berbagai level untuk semua skill.</p>
+      </div>
+    </div>
+
+    <!-- Crystal PvP -->
+    <div class="minigame-section">
+      <img src="cpvp.jpg" alt="Crystal PvP">
+      <div class="minigame-text">
+        <h2>Crystal PvP</h2>
+        <p>Untuk para pemain berpengalaman! Gunakan End Crystal untuk pertarungan super cepat dan intens. Siapa yang bisa bertahan hidup?</p>
+      </div>
+    </div>
+
+    <!-- Murder Mystery -->
+    <div class="minigame-section">
+      <img src="murder_mystery.jpg" alt="Murder Mystery">
+      <div class="minigame-text">
+        <h2>Murder Mystery</h2>
+        <p>Permainan penuh misteri dan strategi. Satu pembunuh rahasia, yang lainnya harus menebak dan bertahan hidup!</p>
+      </div>
+    </div>
+
+    <!-- TNT Run -->
+    <div class="minigame-section">
+      <img src="tnt_run.jpg" alt="TNT Run">
+      <div class="minigame-text">
+        <h2>TNT Run</h2>
+        <p>Berlari di atas blok-blok yang runtuh di bawahmu! Gerak cepat dan jangan berhenti, atau kamu akan jatuh dan kalah!</p>
+      </div>
+    </div>
+
+    <!-- Spleef -->
+    <div class="minigame-section">
+      <img src="spleef.jpg" alt="Spleef">
+      <div class="minigame-text">
+        <h2>Spleef</h2>
+        <p>Hancurkan blok di bawah lawan untuk menjatuhkannya. Minigame klasik yang penuh strategi dan kecepatan tangan!</p>
+      </div>
+    </div>
+
+    <!-- Build Battle -->
+    <div class="minigame-section">
+      <img src="build_battle.jpg" alt="Build Battle">
+      <div class="minigame-text">
+        <h2>Build Battle</h2>
+        <p>Tunjukkan kreativitasmu dalam lomba membangun! Buat kreasi terbaik sesuai tema dan dapatkan suara terbanyak.</p>
+      </div>
+    </div>
+
+    <!-- Lainnya -->
+    <div class="minigame-section">
+      <img src="coomingsoon.avif" alt="Minigames Lainnya">
+      <div class="minigame-text">
+        <h2>Minigames Lainnya</h2>
+        <p>Masih banyak minigame menarik lainnya yang akan segera hadir. Tetap pantau update terbaru dari Alfikz SMP!</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Alfikz SMP - All rights reserved</p>
+  </footer>
+
+</body>
+</html>
+

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pembelian Rank - Alfikz SMP</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #111;
+      color: white;
+    }
+
+    /* Navbar */
+    .navbar {
+      background-color: #4CAF50;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 30px;
+    }
+
+    .navbar h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    .navbar .nav-links a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: bold;
+    }
+
+    .navbar-menu li a:hover {
+      text-decoration: underline;
+    }
+
+
+    /* Header */
+    .header {
+      text-align: center;
+      padding: 40px 20px 20px;
+    }
+
+    .header h2 {
+      font-size: 32px;
+      color: #4CAF50;
+      margin-bottom: 10px;
+    }
+
+    .header p {
+      font-size: 16px;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    /* Benefit Section */
+    .benefits {
+      max-width: 800px;
+      background-color: #1e1e1e;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 30px auto;
+    }
+
+    .benefits h3 {
+      color: #4CAF50;
+    }
+
+    .benefits ul {
+      list-style-type: square;
+      padding-left: 20px;
+    }
+
+    .benefits li {
+      margin-bottom: 8px;
+    }
+
+    /* Rank Cards */
+    .rank-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 30px 20px;
+    }
+
+    .rank-box {
+      background-color: #1e1e1e;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+      width: 260px;
+      text-align: center;
+      padding: 20px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .rank-box:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 20px rgba(76, 175, 80, 0.6);
+    }
+
+    .rank-box img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
+    .rank-box h3 {
+      color: #4CAF50;
+      margin: 10px 0;
+    }
+
+    .rank-box p {
+      font-size: 14px;
+      margin: 5px 0;
+    }
+
+    .rank-box .price {
+      font-weight: bold;
+      color: #4CAF50;
+      margin-top: 10px;
+    }
+
+    .rank-box .buttons {
+      margin-top: 15px;
+    }
+
+    .rank-box .buttons button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 5px;
+      margin: 5px;
+      cursor: pointer;
+    }
+
+    .rank-box .buttons button:hover {
+      background-color: #388E3C;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 14px;
+      padding: 20px;
+      background-color: #1e1e1e;
+      color: white;
+    }
+
+    @media (max-width: 768px) {
+      .rank-container {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <h1>Alfikz SMP</h1>
+    <div class="nav-links">
+      <a href="home.html">Home</a>
+      <a href="https://chat.whatsapp.com/CG4NwgZcDpf7RMo5mrb8p6">Grup WhatsApp</a>
+      <a href="https://discord.gg/">Discord</a>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <div class="header">
+    <h2>Pembelian Rank</h2>
+    <p>Upgrade akun Minecraft kamu dan nikmati fitur eksklusif yang hanya tersedia untuk pemilik rank!</p>
+  </div>
+
+  <!-- Benefit Penjelasan -->
+  <div class="benefits">
+    <h3>Kenapa harus membeli rank?</h3>
+    <ul>
+      <li>Mendapat fitur spesial seperti fly, warp eksklusif, dan nama berwarna di chat.</li>
+      <li>Memberikan dukungan langsung pada pengembangan server Alfikz SMP.</li>
+      <li>Jadi lebih dihormati dan dikenal di komunitas.</li>
+      <li>Ikut serta dalam event khusus dan fitur premium.</li>
+    </ul>
+  </div>
+
+  <!-- Rank Options -->
+  <div class="rank-container">
+    <!-- 6 Rank Box -->
+    <div class="rank-box">
+      <img src="img/rank-vip.jpg" alt="Rank VIP">
+      <h3>VIP</h3>
+      <p>✓ Akses ke /fly<br>✓ Warp eksklusif<br>✓ Prefix VIP di chat</p>
+      <p class="price">Harga: Rp 10.000</p>
+      <div class="buttons">
+        <a href="pembayaran-vip.html"><button>Beli Rank!</button></a>
+      </div>      
+    </div>
+
+    <div class="rank-box">
+      <img src="img/rank-mvp.jpg" alt="Rank MVP">
+      <h3>MVP</h3>
+      <p>✓ Semua fitur VIP<br>✓ Akses ke /nick<br>✓ Chat warna-warni</p>
+      <p class="price">Harga: Rp 25.000</p>
+      <div class="buttons">
+        <a href="pembayaran-vip.html"><button>Beli Rank!</button></a>
+      </div>      
+    </div>
+
+    <div class="rank-box">
+      <img src="img/rank-legend.jpg" alt="Rank LEGEND">
+      <h3>LEGEND</h3>
+      <p>✓ Semua fitur MVP<br>✓ Tag unik & efek partikel</p>
+      <p class="price">Harga: Rp 40.000</p>
+      <div class="buttons">
+        <a href="pembayaran-vip.html"><button>Beli Rank!</button></a>
+      </div>      
+    </div>
+
+    <div class="rank-box">
+      <img src="img/rank-elite.jpg" alt="Rank ELITE">
+      <h3>ELITE</h3>
+      <p>✓ Semua fitur LEGEND<br>✓ Pet eksklusif</p>
+      <p class="price">Harga: Rp 60.000</p>
+      <div class="buttons">
+        <a href="pembayaran-vip.html"><button>Beli Rank!</button></a>
+      </div>      
+    </div>
+
+    <div class="rank-box">
+      <img src="img/rank-mythic.jpg" alt="Rank MYTHIC">
+      <h3>MYTHIC</h3>
+      <p>✓ Semua fitur ELITE<br>✓ Login prioritas</p>
+      <p class="price">Harga: Rp 80.000</p>
+      <div class="buttons">
+        <a href="pembayaran-vip.html"><button>Beli Rank!</button></a>
+      </div>      
+    </div>
+
+    <div class="rank-box">
+      <img src="img/rank-immortal.jpg" alt="Rank IMMORTAL">
+      <h3>IMMORTAL</h3>
+      <p>✓ Semua fitur MYTHIC<br>✓ Skin custom + cape<br>✓ Akses beta fitur server</p>
+      <p class="price">Harga: Rp 120.000</p>
+      <div class="buttons">
+        <a href="pembayaran-vip.html"><button>Beli Rank!</button></a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Alfikz SMP - All rights reserved
+  </footer>
+
+</body>
+</html>
