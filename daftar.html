@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Daftar Sekarang - Alfikz SMP</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #121212;
+      color: white;
+    }
+
+    nav {
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      background-color: #1a1a1a;
+      position: relative;
+    }
+
+    .logo img {
+      height: 45px;
+    }
+
+    .judul-navbar {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #4CAF50;
+      font-weight: bold;
+      font-size: 1.3em;
+    }
+
+    .menu a {
+      margin-left: 20px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: 80px auto;
+      background-color: #1f1f1f;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0, 255, 0, 0.1);
+    }
+
+    h2 {
+      color: #4CAF50;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 8px;
+      background-color: #2b2b2b;
+      color: white;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #4CAF50;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    @media (max-width: 600px) {
+      .menu {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">
+      <img src="logoAlfikz.png" alt="Logo Alfikz SMP">
+    </div>
+    <div class="judul-navbar">Alfikz SMP</div>
+    <div class="menu">
+      <a href="home.html">Beranda</a>
+      <a href="#">Masuk</a>
+      <a href="#">Daftar Sekarang</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h2>Formulir Pendaftaran</h2>
+    <form id="daftarForm">
+      <label for="username">Username Minecraft</label>
+      <input type="text" id="username" name="username" required>
+
+      <label for="email">Alamat Email</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="discord">Username Discord</label>
+      <input type="text" id="discord" name="discord" placeholder="contoh: namauser#1234" required>
+
+      <label for="alasan">Mengapa ingin bergabung?</label>
+      <textarea id="alasan" name="alasan" rows="3" required></textarea>
+
+      <button type="submit">Kirim Pendaftaran</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('daftarForm').addEventListener('submit', function(e) {
+      e.preventDefault();  // Mencegah pengiriman form default
+
+      const formData = new FormData(this);
+
+      // Tampilkan data di konsol untuk memastikan semuanya dikirim
+      for (let [key, value] of formData.entries()) {
+        console.log(`${key}: ${value}`);  // Tampilkan data ke konsol
+      }
+
+      // Kirim data menggunakan Fetch API
+      fetch('/proses-daftar', {
+        method: 'POST',
+        body: formData,
+      })
+      .then(response => {
+        // Cek apakah server mengirimkan respons dalam format JSON
+        const contentType = response.headers.get('Content-Type');
+        
+        if (contentType && contentType.includes('application/json')) {
+          return response.json();  // Jika format JSON, kita parsing JSON
+        } else {
+          throw new Error('Respons bukan dalam format JSON');
+        }
+      })
+      .then(data => {
+        console.log('Response dari server:', data);
+        if (data.success) {
+          window.location.href = '/halaman-utama';  // Redirect ke halaman utama jika berhasil
+        } else {
+          alert('Pendaftaran gagal. Coba lagi.');
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert('Terjadi kesalahan. Coba lagi nanti.');
+      });
+    });
+  </script>
+
+</body>
+</html>

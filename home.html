@@ -1,248 +1,342 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id"> 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Selamat datang di Alfikz SMP!</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alfikz SMP</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
     body {
+      margin: 0;
       font-family: Arial, sans-serif;
       background-color: #101010;
-      color: #e0e0e0;
+      color: #fff;
     }
 
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background-color: #4CAF50;
-      padding: 15px 30px;
-      color: white;
-      flex-wrap: wrap;
-    }
+    nav {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  background-color: #1a1a1a;
+  position: relative;
+}
 
-    .navbar-logo {
-      font-size: 24px;
-      font-weight: bold;
-    }
+nav .logo img {
+  height: 50px; /* logo cukup besar */
+  width: auto;
+  object-fit: contain;
+}
 
-    .navbar-menu {
-      list-style: none;
-      display: flex;
-      gap: 25px;
-      margin: 0;
-      padding: 0;
-    }
+.judul-navbar {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #4CAF50;
+  font-weight: bold;
+  font-size: 1.4em;
+  pointer-events: none; /* supaya nggak ganggu klik menu */
+}
 
-    .navbar-menu li a {
-      color: white;
+
+    nav .logo img {
+  height: 40px;
+  display: block;
+}
+    nav .menu a {
+      color: #fff;
+      margin-left: 20px;
       text-decoration: none;
       font-weight: bold;
     }
 
-    .navbar-menu li a:hover {
-      text-decoration: underline;
+    nav .menu a:hover {
+      color: #4CAF50;
     }
 
-    .hero {
-      position: relative;
-      background: url('1600w-ujuzOi2E_wI.webp') no-repeat center center;
-      background-size: cover;
-      padding: 100px 20px;
-      text-align: center;
-      color: white;
-      overflow: hidden;
-      z-index: 0;
+    .section {
+      max-width: 1200px;
+      margin: auto;
+      padding: 60px 20px;
     }
 
-    .hero::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      height: 150px;
-      background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, #152e17 100%);
-      z-index: 1;
-      pointer-events: none;
-    }
-
-    .hero h2, .hero p, .cta-btn {
-      position: relative;
-      z-index: 2;
-    }
-
-    .hero h2 {
-      font-size: 48px;
+    .section h2 {
+      color: #4CAF50;
       margin-bottom: 20px;
     }
 
-    .hero p {
-      font-size: 18px;
-      margin-bottom: 30px;
-    }
-
-    .cta-btn {
-      background-color: #4CAF50;
-      color: white;
-      padding: 15px 30px;
-      font-size: 20px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      text-decoration: none;
-    }
-
-    .cta-btn:hover {
-      background-color: #388E3C;
-    }
-
-    .features-wrapper {
-      background: url('4K 16_9 Wallpaper - Hyper-realistic Minecraft.jpeg') no-repeat center center;
-      background-size: cover;
-      padding: 100px 20px 80px;
-    }
-
-    .features {
+    .about, .kenapa-container {
       display: flex;
-      justify-content: center;
       flex-wrap: wrap;
+      align-items: center;
       gap: 30px;
-      max-width: 1100px;
-      margin: auto;
     }
 
-    .feature-box {
-      background-color: #4CAF50;
-      padding: 30px;
-      width: 300px;
+    .about img, .kenapa-container img {
+      max-width: 500px;
+      width: 100%;
       border-radius: 10px;
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-      text-align: center;
-      color: white;
-      transition: all 0.3s ease;
-      cursor: pointer;
-      text-decoration: none;
     }
 
-    .feature-box:hover {
-      background-color: #388E3C;
-      transform: scale(1.05);
+    .fitur-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 30px;
     }
 
-    .feature-box img {
-      width: 80px;
-      height: 80px;
-      margin-bottom: 15px;
-      pointer-events: none;
-    }
-
-    .feature-box h3,
-    .feature-box p {
-      color: white;
-      pointer-events: none;
-    }
-
-    footer {
-      background-color: #101010;
-      color: #ddd;
-      text-align: center;
+    .feature {
+      background-color: #1a1a1a;
+      border-radius: 12px;
       padding: 20px;
-      font-size: 14px;
+      width: 250px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+      transition: transform 0.3s, opacity 0.3s;
+      opacity: 0;
     }
 
-    @media (max-width: 768px) {
-      .hero h2 {
-        font-size: 28px;
-      }
-      .hero p {
-        font-size: 16px;
-        padding: 0 10px;
-      }
-      .cta-btn {
-        font-size: 16px;
-        padding: 12px 20px;
-      }
-      .features {
-        flex-direction: column;
-        align-items: center;
-      }
-      .feature-box {
-        width: 100%;
-        max-width: 90%;
-      }
-      .navbar {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .navbar-menu {
-        flex-direction: column;
-        gap: 10px;
-        width: 100%;
-        margin-top: 10px;
-      }
+    .feature:hover {
+      transform: translateY(-5px);
     }
+
+    .feature img {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 12px;
+    }
+
+    .testimoni, .kenapa, .gabung {
+      text-align: left;
+    }
+
+    .kenapa-container {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      gap: 30px;
+      margin-top: 40px;
+      justify-content: left;
+    }
+
+    .kenapa img {
+      max-width: 400px;
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .keunggulan-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: flex-start;
+      margin-top: 20px;
+    }
+
+    .keunggulan-item {
+      display: flex;
+      align-items: center;
+      background-color: #1a1a1a;
+      border-radius: 10px;
+      padding: 15px;
+      flex: 1 1 250px;
+      box-sizing: border-box;
+      transition: transform 0.3s, opacity 0.3s;
+      opacity: 0;
+    }
+
+    .keunggulan-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .keunggulan-item img {
+      width: 30px;
+      height: 30px;
+      margin-right: 15px;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: #4CAF50;
+      color: #fff;
+      padding: 15px 30px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+
+    .btn:hover {
+      background-color: #45a049;
+    }
+
+    .show {
+      opacity: 1 !important;
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    /* Customizing text alignment for alternating sections */
+    .section:nth-child(odd) h2 {
+      text-align: right;
+    }
+
+    .section:nth-child(even) h2 {
+      text-align: left;
+    }
+
+    /* Override khusus untuk bagian Kenapa */
+    .kenapa h2 {
+      text-align: left !important;
+    }
+
+    .section:nth-child(odd) .about {
+      flex-direction: row-reverse;
+    }
+
+    .section:nth-child(even) .about {
+      flex-direction: row;
+    }
+
+    .section img {
+  max-width: 500px;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.feature img {
+  width: 40px;
+  height: auto;
+  margin-bottom: 12px;
+  object-fit: contain;
+}
+
   </style>
 </head>
-<body>
+<body>  
+  <nav>
+    <div class="logo">
+      <img src="logoAlfikz.png" alt="Alfikz SMP Logo" style="height: 100px;">
+    </div>
+    <div class="judul-navbar">Alfikz SMP</div>
+    <div class="menu">
+      <a href="masuk.html">Masuk</a>
+      <a href="daftar.html">Daftar Sekarang</a>
+    </div>
+  </nav>   
 
-  <nav class="navbar">
-    <div class="navbar-logo">Alfikz SMP</div>
-    <ul class="navbar-menu">
-      <li><a href="home.html">Home</a></li>
-      <li><a href="https://chat.whatsapp.com/CG4NwgZcDpf7RMo5mrb8p6">Grup WhatsApp</a></li>
-      <li><a href="https://discord.gg/usUAGRQMsc">Discord</a></li>
-    </ul>
-  </nav>
+  <!-- 1. Tentang Server -->  
+  <section class="section about">
+    <div>
+      <h2>Tentang Server Alfikz SMP</h2>
+      <p>Alfikz SMP adalah server Minecraft Survival Multiplayer (SMP) yang dirancang untuk memberikan pengalaman bermain yang seru, adil, dan penuh kebersamaan bagi semua pemain. Di server ini, kamu bisa menikmati gameplay survival klasik lengkap dengan sistem proteksi wilayah yang mencegah griefing, komunitas yang aktif dan ramah, serta berbagai fitur menarik seperti event rutin, sistem rank dengan keuntungan khusus, dan toko dalam game. Selain itu, Alfikz SMP juga terhubung dengan Discord sebagai tempat komunikasi utama dan informasi penting antar pemain. Dengan semangat komunitas dan dukungan yang terus berkembang, Alfikz SMP siap menjadi rumah kedua bagi para pecinta Minecraft di Indonesia.</p>
+    </div>
+  </section>  
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <h2>Selamat datang di Alfikz SMP!</h2>
-    <p>Bergabunglah sekarang dan nikmati pengalaman Minecraft terbaik dengan teman-temanmu.</p>
-    <a href="https://chat.whatsapp.com/CG4NwgZcDpf7RMo5mrb8p6" class="cta-btn">Join Grup WhatsApp Sekarang!</a>
-  </section>
+<!-- 2. Fitur Unggulan -->
+<section class="section">
+  <h2 style="text-align: center;">Fitur Unggulan Alfikz SMP</h2>
+  <div class="fitur-container" style="justify-content: center;">
+    <div class="feature" style="width: 200px;">
+      <img src="SurvivalAlfikz.png" alt="Survival">
+      <h3>Survival</h3>
+      <p>Mode bertahan hidup dengan ekonomi seimbang dan komunitas aktif.</p>
+    </div>
+    <div class="feature" style="width: 200px;">
+      <img src="minigame-icon.png" alt="Mini Games">
+      <h3>Mini Games</h3>
+      <p>Main game seru seperti parkour, spleef, dan PvP langsung dalam server.</p>
+    </div>
+    <div class="feature" style="width: 200px;">
+      <img src="RankAlfikz.png" alt="Ranking">
+      <h3>Sistem Rank</h3>
+      <p>Naikkan rank dan dapatkan fitur eksklusif melalui pembelian atau event.</p>
+    </div>
+    <div class="feature" style="width: 200px;">
+      <img src="informasiAlfikz.png" alt="Informasi Server">
+      <h3>Informasi Server</h3>
+      <p>Dapatkan info lengkap tentang server, jadwal event, dan update terbaru.</p>
+    </div>
+  </div>
+</section>  
 
-  <!-- Fitur Server -->
-  <section class="features-wrapper">
-    <div class="features">
-      <a href="survival.html" class="feature-box">
-        <img src="images (3).jpeg" alt="Survival Mode">
-        <h3>Survival Mode</h3>
-        <p>Jelajahi dunia penuh petualangan dengan mode survival yang seru!</p>
-      </a>
-      <a href="minigames.html" class="feature-box">
-        <img src="images (2).jpeg" alt="Mini Games">
-        <h3>Mini Games</h3>
-        <p>Bergabung dalam berbagai mini game seru bersama teman-temanmu.</p>
-      </a>
-      <a href="images (1).jpeg" class="feature-box">
-        <img src="images (1).jpeg" alt="Economy Mode">
-        <h3>Ekonomi</h3>
-        <p>Bangun kekayaan dan bisnis di server dengan sistem ekonomi yang menarik.</p>
-      </a>
-      <a href="rank.html" class="feature-box">
-        <img src="cart.png" alt="Pembelian Rank">
-        <h3>Pembelian Rank</h3>
-        <p>Upgrade rank kamu untuk akses lebih banyak fitur keren di server!</p>
-      </a>
-      <a href="informasi-server.html" class="feature-box">
-        <img src="informasi.png" alt="Informasi Server">
-        <h3>Informasi Server</h3>
-        <p>Temukan semua informasi tentang server kami, termasuk aturan dan fitur terbaru.</p>
-      </a>
+  <!-- 3. Testimoni -->  
+  <!-- Slider & Testimoni -->
+<section style="display: flex; justify-content: space-between; align-items: center; margin-top: 50px; flex-wrap: wrap;">
+
+  <!-- Foto slider -->
+  <div style="flex: 1; text-align: center; max-width: 45%;">
+    <img id="slider" src="logoAlfikz.png" alt="Player Testimoni" style="max-width: 100%; border-radius: 10px;">
+  </div>
+
+  <!-- Testimoni -->
+  <div style="flex: 1; text-align: center; padding: 20px; max-width: 45%;">
+    <h2 style="color: limegreen;">Apa Kata Player?</h2>
+    <p style="max-width: 100%;">"Server Alfikz SMP pingnya stabil banget! Mainnya nyaman tanpa lag." - Player A</p>
+    <p style="max-width: 100%;">"Komunitasnya seru, stafnya ramah, eventnya keren!" - Player B</p>
+  </div>
+
+</section>
+
+<!-- Script slider sederhana -->
+<script>
+  const images = ["parkour.png", "pvp.png", "tnt_run.jpg", "build_battle.jpg", ]; // Ganti dengan nama gambar kamu
+  let current = 0;
+
+  setInterval(() => {
+    current = (current + 1) % images.length;
+    document.getElementById('slider').src = images[current];
+  }, 3000); // Ganti gambar setiap 3 detik
+</script>
+
+  <!-- 4. Kenapa harus join alfikz smp -->  
+  <section class="section kenapa">
+    <h2>Kenapa Harus Banget Join Alfikz SMP?</h2>
+    <div class="kenapa-container">
+      <div style="flex: 1; min-width: 300px;">
+        <p style="font-size: 1.1em; line-height: 1.6;">
+          (Server Minecraft yang Bukan Sekadar Main, Tapi Tempat Berkembang dan Bersosialisasi)
+          Di tengah banyaknya server Minecraft yang bermunculan, tentu sulit menentukan mana yang layak untuk dicoba. Namun, Alfikz SMP hadir sebagai salah satu pilihan yang wajib dipertimbangkan, baik untuk pemain casual maupun hardcore. Bukan sekadar server biasa, Alfikz SMP menawarkan pengalaman bermain yang lebih kaya, komunitas yang hangat, serta fitur unik yang membuat setiap menit di dalamnya terasa seru dan bermakna.
+        </p>
+        <ul style="list-style: none; padding: 0; margin-top: 30px;">
+          <li style="margin-bottom: 15px; display: flex; align-items: center;">
+            <span style="color: #4CAF50; font-size: 1.5em; margin-right: 12px;">✔</span>
+            Ping Stabil & Bebas Lag
+          </li>
+          <li style="margin-bottom: 15px; display: flex; align-items: center;">
+            <span style="color: #4CAF50; font-size: 1.5em; margin-right: 12px;">✔</span>
+            Event Seru Setiap Minggu
+          </li>
+          <li style="margin-bottom: 15px; display: flex; align-items: center;">
+            <span style="color: #4CAF50; font-size: 1.5em; margin-right: 12px;">✔</span>
+            Komunitas Aktif & Supportive
+          </li>
+          <li style="margin-bottom: 15px; display: flex; align-items: center;">
+            <span style="color: #4CAF50; font-size: 1.5em; margin-right: 12px;">✔</span>
+            Cocok Untuk Pemula & Pro
+          </li>
+          <li style="margin-bottom: 15px; display: flex; align-items: center;">
+            <span style="color: #4CAF50; font-size: 1.5em; margin-right: 12px;">✔</span>
+            Staff Ramah & Aktif
+          </li>
+        </ul>
+        <a href="#" class="btn">Gabung Sekarang</a>
+      </div>
+      <img src="logoAlfikz.png" alt="Gabung Alfikz SMP" style="max-width: 400px; border-radius: 100px;">
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Alfikz SMP - All rights reserved</p>
-  </footer>
+  <script>
+    // Animasi Fade-in saat scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    });
 
+    document.querySelectorAll('.feature, .keunggulan-item').forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>
