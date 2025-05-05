@@ -12,40 +12,55 @@
       color: #fff;
     }
 
+    #navbar {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      gap: 20px;
+    }
+
+    #navbar li a {
+      text-decoration: none;
+      color: white;
+    }
+
     nav {
-  height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 20px;
-  background-color: #1a1a1a;
-  position: relative;
-}
-
-nav .logo img {
-  height: 50px; /* logo cukup besar */
-  width: auto;
-  object-fit: contain;
-}
-
-.judul-navbar {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  color: #4CAF50;
-  font-weight: bold;
-  font-size: 1.4em;
-  pointer-events: none; /* supaya nggak ganggu klik menu */
-}
-
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      background-color: #1a1a1a;
+      position: relative;
+      flex-wrap: nowrap; /* Biar tombol kanan nggak pindah saat layar kecil */
+    }
 
     nav .logo img {
-  height: 40px;
-  display: block;
-}
+      height: 50px;
+      width: auto;
+      object-fit: contain;
+      display: block;
+    }
+
+    .judul-navbar {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #4CAF50;
+      font-weight: bold;
+      font-size: 1.4em;
+      pointer-events: none;
+    }
+
+    nav .menu {
+      display: flex;
+      gap: 20px;
+      flex-wrap: nowrap;
+    }
+
     nav .menu a {
       color: #fff;
-      margin-left: 20px;
       text-decoration: none;
       font-weight: bold;
     }
@@ -176,16 +191,14 @@ nav .logo img {
       transition: opacity 0.6s ease-out, transform 0.6s ease-out;
     }
 
-    /* Customizing text alignment for alternating sections */
     .section:nth-child(odd) h2 {
-      text-align: right;
+      text-align: center;
     }
 
     .section:nth-child(even) h2 {
       text-align: left;
     }
 
-    /* Override khusus untuk bagian Kenapa */
     .kenapa h2 {
       text-align: left !important;
     }
@@ -199,31 +212,71 @@ nav .logo img {
     }
 
     .section img {
-  max-width: 500px;
-  width: 100%;
-  border-radius: 10px;
-}
+      max-width: 500px;
+      width: 100%;
+      border-radius: 10px;
+    }
 
-.feature img {
-  width: 40px;
-  height: auto;
-  margin-bottom: 12px;
-  object-fit: contain;
-}
-
+    .feature img {
+      width: 40px;
+      height: auto;
+      margin-bottom: 12px;
+      object-fit: contain;
+    }
   </style>
+
 </head>
 <body>  
+  <!-- Navbar -->
   <nav>
     <div class="logo">
       <img src="logoAlfikz.png" alt="Alfikz SMP Logo" style="height: 100px;">
     </div>
-    <div class="judul-navbar">Alfikz SMP</div>
+    <div class="judul-navbar"></div>
     <div class="menu">
-      <a href="masuk.html">Masuk</a>
-      <a href="daftar.html">Daftar Sekarang</a>
+      <ul id="navbar">
+        <li><a href="home.html">Beranda</a></li>
+        <li><a href="#">Kontak</a></li>
+        <li><a href="profile.html">Profile</a></li> <!-- Ini tombol baru -->
+        <li><a href="#" onclick="logout()">Logout</a></li>
+      </ul>
     </div>
-  </nav>   
+  </nav>
+
+  <script>
+    function updateNavbar() {
+      const isLoggedIn = localStorage.getItem('isLoggedIn');
+      const loginNav = document.getElementById('login-nav');
+      const registerNav = document.getElementById('register-nav');
+  
+      if (isLoggedIn === 'true') {
+        loginNav.innerHTML = '<a class="nav-link" href="#" onclick="logout()">Logout</a>';
+        registerNav.style.display = 'none';
+      } else {
+        loginNav.innerHTML = '<a class="nav-link" href="#" onclick="login()">Login</a>';
+        registerNav.style.display = 'block';
+      }
+    }
+  
+    function login() {
+      localStorage.setItem('isLoggedIn', 'true');
+      updateNavbar();
+      alert('Kamu sudah login!');
+    }
+  
+    function logout() {
+      localStorage.setItem('isLoggedIn', 'false');
+      updateNavbar();
+      alert('Kamu sudah logout!');
+    }
+  
+    function register() {
+      alert('Form registrasi akan muncul di sini!');
+    }
+  
+    // Jalankan pas halaman selesai dimuat
+    document.addEventListener('DOMContentLoaded', updateNavbar);
+  </script>
 
   <!-- 1. Tentang Server -->  
   <section class="section about">
@@ -235,48 +288,58 @@ nav .logo img {
 
 <!-- 2. Fitur Unggulan -->
 <section class="section">
-  <h2 style="text-align: center;">Fitur Unggulan Alfikz SMP</h2>
-  <div class="fitur-container" style="justify-content: center;">
-    <div class="feature" style="width: 200px;">
-      <img src="SurvivalAlfikz.png" alt="Survival">
-      <h3>Survival</h3>
-      <p>Mode bertahan hidup dengan ekonomi seimbang dan komunitas aktif.</p>
-    </div>
-    <div class="feature" style="width: 200px;">
-      <img src="minigame-icon.png" alt="Mini Games">
-      <h3>Mini Games</h3>
-      <p>Main game seru seperti parkour, spleef, dan PvP langsung dalam server.</p>
-    </div>
-    <div class="feature" style="width: 200px;">
-      <img src="RankAlfikz.png" alt="Ranking">
-      <h3>Sistem Rank</h3>
-      <p>Naikkan rank dan dapatkan fitur eksklusif melalui pembelian atau event.</p>
-    </div>
-    <div class="feature" style="width: 200px;">
-      <img src="informasiAlfikz.png" alt="Informasi Server">
-      <h3>Informasi Server</h3>
-      <p>Dapatkan info lengkap tentang server, jadwal event, dan update terbaru.</p>
-    </div>
+  <h2 style="text-align: center; color: #4CAF50;">Fitur Unggulan Alfikz SMP</h2>
+  <div class="fitur-container" style="justify-content: center; display: flex; flex-wrap: wrap; gap: 20px;">
+
+    <a href="survival.html" style="text-decoration: none; color: inherit;">
+      <div class="feature" style="width: 220px; height: 180px; text-align: center; padding: 20px; background-color: #1a1a1a; border-radius: 12px; display: flex; flex-direction: column; justify-content: center;">
+        <img src="SurvivalAlfikz.png" alt="Survival" style="width: 40px; height: 40px; margin: 0 auto;">
+        <h3 style="margin: 10px 0 5px 0;">Survival</h3>
+        <p style="font-size: 0.9em;">Mode bertahan hidup dengan ekonomi seimbang dan komunitas aktif.</p>
+      </div>
+    </a>
+
+    <a href="minigames.html" style="text-decoration: none; color: inherit;">
+      <div class="feature" style="width: 220px; height: 180px; text-align: center; padding: 20px; background-color: #1a1a1a; border-radius: 12px; display: flex; flex-direction: column; justify-content: center;">
+        <img src="minigamesAlfikz.png" alt="Mini Games" style="width: 40px; height: 40px; margin: 0 auto;">
+        <h3 style="margin: 10px 0 5px 0;">Mini Games</h3>
+        <p style="font-size: 0.9em;">Main game seru seperti parkour, spleef, dan PvP langsung dalam server.</p>
+      </div>
+    </a>
+
+    <a href="rank.html" style="text-decoration: none; color: inherit;">
+      <div class="feature" style="width: 220px; height: 180px; text-align: center; padding: 20px; background-color: #1a1a1a; border-radius: 12px; display: flex; flex-direction: column; justify-content: center;">
+        <img src="RankAlfikz.png" alt="Ranking" style="width: 40px; height: 40px; margin: 0 auto;">
+        <h3 style="margin: 10px 0 5px 0;">Sistem Rank</h3>
+        <p style="font-size: 0.9em;">Naikkan rank dan dapatkan fitur eksklusif melalui pembelian atau event.</p>
+      </div>
+    </a>
+
+    <a href="informasi-server.html" style="text-decoration: none; color: inherit;">
+      <div class="feature" style="width: 220px; height: 180px; text-align: center; padding: 20px; background-color: #1a1a1a; border-radius: 12px; display: flex; flex-direction: column; justify-content: center;">
+        <img src="informasiAlfikz.png" alt="Informasi Server" style="width: 40px; height: 40px; margin: 0 auto;">
+        <h3 style="margin: 10px 0 5px 0;">Informasi Server</h3>
+        <p style="font-size: 0.9em;">Dapatkan info lengkap tentang server, jadwal event, dan update terbaru.</p>
+      </div>
+    </a>
+
   </div>
-</section>  
+</section>
+
 
   <!-- 3. Testimoni -->  
   <!-- Slider & Testimoni -->
-<section style="display: flex; justify-content: space-between; align-items: center; margin-top: 50px; flex-wrap: wrap;">
-
-  <!-- Foto slider -->
-  <div style="flex: 1; text-align: center; max-width: 45%;">
-    <img id="slider" src="logoAlfikz.png" alt="Player Testimoni" style="max-width: 100%; border-radius: 10px;">
-  </div>
-
-  <!-- Testimoni -->
-  <div style="flex: 1; text-align: center; padding: 20px; max-width: 45%;">
-    <h2 style="color: limegreen;">Apa Kata Player?</h2>
-    <p style="max-width: 100%;">"Server Alfikz SMP pingnya stabil banget! Mainnya nyaman tanpa lag." - Player A</p>
-    <p style="max-width: 100%;">"Komunitasnya seru, stafnya ramah, eventnya keren!" - Player B</p>
-  </div>
-
-</section>
+  <section style="display: flex; justify-content: center; align-items: center; gap: 40px; padding: 20px;">
+    <!-- Gambar -->
+    <img id="slider" src="cpvp.jpg" alt="Slider" style="max-width: 400px; border-radius: 10px;">
+  
+    <!-- Text Player -->
+    <div style="flex: 1; text-align: center; padding: 20px; max-width: 45%; margin-left: 50px;">
+      <h2 style="color: limegreen;">Apa Kata Player?</h2>
+      <p style="max-width: 100%;">"Server Alfikz SMP pingnya stabil banget! Mainnya nyaman tanpa lag." - Player A</p>
+      <p style="max-width: 100%;">"Komunitasnya seru, stafnya ramah, eventnya keren!" - Player B</p>
+    </div>
+  </section>
 
 <!-- Script slider sederhana -->
 <script>
