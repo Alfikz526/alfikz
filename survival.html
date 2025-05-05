@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Survival Mode - Alfikz SMP</title>
   <link rel="stylesheet" href="styles.css" />
+
   <style>
     body {
       font-family: 'Arial', sans-serif;
@@ -19,39 +20,58 @@
       font-weight: bold;
     }
 
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background-color: #4CAF50;
-      padding: 15px 30px;
-      color: white;
-      font-family: Arial, sans-serif;
-      flex-wrap: wrap;
-    }
+    #navbar {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex; /* Supaya horizontal */
+  gap: 20px; /* Jarak antar tombol */
+}
 
-    .navbar-logo {
-      font-size: 24px;
-      font-weight: bold;
-    }
+#navbar li a {
+  text-decoration: none;
+  color: white; /* Warna teks */
+}
+    nav {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  background-color: #1a1a1a;
+  position: relative;
+}
 
-    .navbar-menu {
-      list-style: none;
-      display: flex;
-      gap: 25px;
-      margin: 0;
-      padding: 0;
-    }
+nav .logo img {
+  height: 50px; /* logo cukup besar */
+  width: auto;
+  object-fit: contain;
+}
 
-    .navbar-menu li a {
-      color: white;
+.judul-navbar {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #4CAF50;
+  font-weight: bold;
+  font-size: 1.4em;
+  pointer-events: none; /* supaya nggak ganggu klik menu */
+}
+
+
+    nav .logo img {
+  height: 40px;
+  display: block;
+}
+    nav .menu a {
+      color: #fff;
+      margin-left: 20px;
       text-decoration: none;
-      font-weight: normal;
       font-weight: bold;
     }
 
-    .navbar-menu li a:hover {
-      text-decoration: underline;
+    nav .menu a:hover {
+      color: #4CAF50;
     }
 
     header {
@@ -146,15 +166,16 @@
 <body>
 
   <!-- Navbar -->
-  <nav class="navbar">
-    <div class="navbar-logo">Alfikz SMP</div>
-    <ul class="navbar-menu">
-      <li><a href="home.html">Home</a></li>
-      <li><a href="https://chat.whatsapp.com/CG4NwgZcDpf7RMo5mrb8p6">Grup WhatsApp</a></li>
-      <li><a href="https://discord.gg/usUAGRQMsc">Discord</a></li>
-    </ul>
-  </nav>
-
+  <div id="navbar-placeholder"></div>
+  
+  <script>
+    fetch("navbar.html")
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("navbar-placeholder").innerHTML = data;
+      });
+  </script>
+  
   <!-- Header -->
   <header>
     <h1>Survival Mode</h1>
