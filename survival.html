@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Survival Mode - Alfikz SMP</title>
   <link rel="stylesheet" href="styles.css" />
-
   <style>
     body {
       font-family: 'Arial', sans-serif;
@@ -166,16 +165,56 @@ nav .logo img {
 <body>
 
   <!-- Navbar -->
-  <div id="navbar-placeholder"></div>
-  
+  <nav>
+    <div class="logo">
+      <img src="logoAlfikz.png" alt="Alfikz SMP Logo" style="height: 100px;">
+    </div>
+    <div class="judul-navbar"></div>
+    <div class="menu">
+      <ul id="navbar">
+        <li><a href="home.html">Beranda</a></li>
+        <li><a href="#">Kontak</a></li>
+        <li><a href="profile.html">Profile</a></li> <!-- Ini tombol baru -->
+        <li><a href="#" onclick="logout()">Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+
   <script>
-    fetch("navbar.html")
-      .then(res => res.text())
-      .then(data => {
-        document.getElementById("navbar-placeholder").innerHTML = data;
-      });
-  </script>
+    function updateNavbar() {
+      const isLoggedIn = localStorage.getItem('isLoggedIn');
+      const loginNav = document.getElementById('login-nav');
+      const registerNav = document.getElementById('register-nav');
   
+      if (isLoggedIn === 'true') {
+        loginNav.innerHTML = '<a class="nav-link" href="#" onclick="logout()">Logout</a>';
+        registerNav.style.display = 'none';
+      } else {
+        loginNav.innerHTML = '<a class="nav-link" href="#" onclick="login()">Login</a>';
+        registerNav.style.display = 'block';
+      }
+    }
+  
+    function login() {
+      localStorage.setItem('isLoggedIn', 'true');
+      updateNavbar();
+      alert('Kamu sudah login!');
+    }
+  
+    function logout() {
+      localStorage.setItem('isLoggedIn', 'false');
+      updateNavbar();
+      alert('Kamu sudah logout!');
+    }
+  
+    function register() {
+      alert('Form registrasi akan muncul di sini!');
+    }
+  
+    // Jalankan pas halaman selesai dimuat
+    document.addEventListener('DOMContentLoaded', updateNavbar);
+  </script>
+
   <!-- Header -->
   <header>
     <h1>Survival Mode</h1>
